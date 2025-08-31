@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Key_Code Template Universal</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Pacifico', cursive;
+    background: url('imagens_site/cao.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 0 10px;
+  }
+
+  header {
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(0,0,0,0.4);
+    text-shadow: 0 0 10px #00ffcc;
+    font-size: clamp(2rem, 5vw, 3em); /* responsivo */
+  }
+
+  .container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  details {
+    background: rgba(0,0,0,0.6);
+    padding: 15px 20px;
+    border-radius: 15px;
+    width: 100%;
+    box-shadow: 0 0 15px #00ffcc;
+    transition: all 0.3s ease;
+  }
+
+  details[open] {
+    box-shadow: 0 0 25px #00ffcc;
+    transform: scale(1.02);
+  }
+
+  summary {
+    cursor: pointer;
+    font-size: clamp(1.2rem, 4vw, 1.5em);
+    letter-spacing: 2px;
+    text-shadow: 0 0 8px #00ffcc;
+  }
+
+  summary:hover {
+    text-shadow: 0 0 15px #ff00ff, 0 0 20px #00ffff;
+  }
+
+  details p {
+    margin-top: 10px;
+    font-size: clamp(1rem, 2.5vw, 1.1em);
+    line-height: 1.4em;
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0,0,0,0.4);
+  }
+
+  .btn-whatsapp {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 10px;
+    background: #25D366;
+    color: #fff;
+    font-size: clamp(1rem, 3vw, 1.2em);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    word-break: break-word;
+  }
+
+  .btn-whatsapp:hover {
+    background: #128C7E;
+    box-shadow: 0 0 15px #25D366;
+  }
+
+  .neon {
+    color: #0ff;
+    text-shadow:
+      0 0 5px #0ff,
+      0 0 10px #0ff,
+      0 0 20px #0ff,
+      0 0 40px #0ff;
+  }
+
+  @media (max-width: 480px) {
+    body {
+      padding: 0 5px;
+    }
+    details {
+      padding: 10px 15px;
+    }
+    .btn-whatsapp {
+      padding: 10px 15px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header class="neon">Key_Code - Seu Negócio Aqui</header>
+
+<div class="container">
+  <details>
+    <summary class="neon">Serviço 1</summary>
+    <p>Descrição rápida do serviço ou produto. Ex.: Produtos frescos, atendimento personalizado.</p>
+  </details>
+
+  <details>
+    <summary class="neon">Serviço 2</summary>
+    <p>Outra descrição breve. Ex.: Produtos artesanais, atendimento diferenciado.</p>
+  </details>
+
+  <details>
+    <summary class="neon">Serviço 3</summary>
+    <p>Mais uma descrição. Ex.: Promoções semanais, novidades fresquinhas.</p>
+  </details>
+</div>
+
+<footer>
+  <a href="https://wa.me/5511941831006" class="btn-whatsapp">Fale conosco no WhatsApp</a>
+</footer>
+
+</body>
+</html>
