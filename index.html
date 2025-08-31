@@ -25,50 +25,49 @@
 
   header {
     text-align: center;
-    padding: 30px 15px;
+    padding: 40px 20px;
     background: rgba(0,0,0,0.4);
-    font-size: clamp(1.8rem, 4vw, 3em);
-    animation: piscar 3s infinite alternate;
+    font-size: clamp(1.8rem, 5vw, 3em);
+    animation: piscar 4s infinite alternate;
   }
 
   @keyframes piscar {
-    0% { text-shadow: 0 0 5px #0ff, 0 0 10px #0ff; color:#0ff; }
-    50% { text-shadow: 0 0 15px #ff00ff, 0 0 25px #0ff; color:#fff; }
-    100% { text-shadow: 0 0 10px #00ffcc, 0 0 20px #0ff; color:#0ff; }
+    0% { text-shadow: 0 0 8px #00ffcc; color:#0ff; }
+    50% { text-shadow: 0 0 18px #ff00ff, 0 0 25px #00ffff; color:#fff; }
+    100% { text-shadow: 0 0 10px #00ffcc; color:#0ff; }
   }
 
   .container {
     flex: 1;
     display: flex;
-    flex-wrap: wrap; /* deixa em linha em telas grandes */
-    align-items: stretch;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
     width: 100%;
-    max-width: 1000px;
-    margin: 20px auto;
+    max-width: 600px;
+    margin: 0 auto;
   }
 
   details {
     background: rgba(0,0,0,0.6);
     padding: 15px 20px;
-    border-radius: 12px;
-    flex: 1 1 250px; /* responsivo */
-    min-width: 200px;
-    max-width: 300px;
-    box-shadow: 0 0 10px #00ffcc;
+    border-radius: 15px;
+    width: 100%;
+    box-shadow: 0 0 15px #00ffcc;
     transition: all 0.3s ease;
   }
 
   details[open] {
-    box-shadow: 0 0 20px #00ffcc;
-    transform: scale(1.03);
+    box-shadow: 0 0 25px #00ffcc;
+    transform: scale(1.02);
   }
 
   summary {
     cursor: pointer;
-    font-size: clamp(1rem, 2.5vw, 1.3em);
+    font-size: clamp(1rem, 4vw, 1.4em);
     letter-spacing: 2px;
+    text-shadow: 0 0 8px #00ffcc;
   }
 
   summary:hover {
@@ -77,47 +76,46 @@
 
   details p {
     margin-top: 10px;
-    font-size: clamp(0.9rem, 2vw, 1em);
+    font-size: clamp(0.9rem, 2.5vw, 1.1em);
     line-height: 1.4em;
   }
 
   footer {
     text-align: center;
-    padding: 15px;
+    padding: 20px;
     background: rgba(0,0,0,0.4);
   }
 
   .btn-whatsapp {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 12px 25px;
     border-radius: 10px;
     background: #25D366;
     color: #fff;
-    font-size: clamp(0.9rem, 2.5vw, 1.1em);
+    font-size: clamp(0.9rem, 3vw, 1.2em);
     text-decoration: none;
     transition: all 0.3s ease;
+    word-break: break-word;
   }
 
   .btn-whatsapp:hover {
     background: #128C7E;
-    box-shadow: 0 0 12px #25D366;
+    box-shadow: 0 0 15px #25D366;
   }
 
-  @media (max-width: 600px) {
-    header {
-      font-size: 1.6rem;
-      padding: 20px 10px;
-    }
-    .container {
-      flex-direction: column; /* no celular fica em coluna */
-      align-items: center;
+  @media (max-width: 480px) {
+    body {
+      padding: 0 5px;
     }
     details {
-      width: 90%;
-      padding: 12px 15px;
+      padding: 10px 15px;
     }
     .btn-whatsapp {
-      padding: 8px 15px;
+      padding: 10px 15px;
+    }
+    header {
+      font-size: 1.6rem;
+      padding: 25px 10px;
     }
   }
 </style>
@@ -129,17 +127,17 @@
 <div class="container">
   <details>
     <summary>Serviço 1</summary>
-    <p>Treinos personalizados para atingir seus objetivos mais rápido.</p>
+    <p>Descrição rápida do serviço ou produto. Ex.: Produtos frescos, atendimento personalizado.</p>
   </details>
 
   <details>
     <summary>Serviço 2</summary>
-    <p>Aulas em grupo motivacionais com acompanhamento de profissionais.</p>
+    <p>Outra descrição breve. Ex.: Produtos artesanais, atendimento diferenciado.</p>
   </details>
 
   <details>
     <summary>Serviço 3</summary>
-    <p>Planos de nutrição integrados ao seu treino para melhores resultados.</p>
+    <p>Mais uma descrição. Ex.: Promoções semanais, novidades fresquinhas.</p>
   </details>
 </div>
 
