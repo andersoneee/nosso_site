@@ -1,40 +1,245 @@
-<style>
-  /* ... (outras partes do estilo permanecem iguais) ... */
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia Performance</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-  details {
-    background: rgba(0,0,0,0.4); /* Mais transparente (alpha 0.4) */
-    border-radius: 15px;
-    flex: 1;
-    min-width: 250px;
-    max-width: 300px;
-    padding: 15px 20px;
-    box-shadow: 0 0 15px #ff3366; /* Vermelho neón */
-    transition: all 0.3s ease;
-    transform: scale(0.8);
-    opacity: 0.8;
-  }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-  details[open] {
-    transform: scale(1);
-    opacity: 1;
-    box-shadow: 0 0 25px #ff3366; /* Vermelho mais intenso */
-  }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            padding: 0 10px;
+        }
 
-  summary {
-    cursor: pointer;
-    font-size: clamp(1rem, 2vw, 1.4em);
-    letter-spacing: 2px;
-    text-shadow: 0 0 8px #ff3366; /* Vermelho */
-  }
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(0, 0, 0, 0.4);
+            font-family: 'Pacifico', cursive;
+            font-size: clamp(1.8rem, 5vw, 3em);
+            animation: piscar 4s infinite alternate;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #ff3366;
+        }
 
-  summary:hover {
-    text-shadow: 0 0 15px #ff0000, 0 0 20px #ff3366; /* Vermelho intenso */
-  }
+        @keyframes piscar {
+            0% { text-shadow: 0 0 8px #ff3366; color: #ff6666; }
+            50% { text-shadow: 0 0 18px #ff0000, 0 0 25px #ff3366; color: #fff; }
+            100% { text-shadow: 0 0 10px #ff3366; color: #ff6666; }
+        }
 
-  /* Se quiser mudar também a animação do header para vermelho */
-  @keyframes piscar {
-    0% { text-shadow: 0 0 8px #ff3366; color: #ff6666; }
-    50% { text-shadow: 0 0 18px #ff0000, 0 0 25px #ff3366; color: #fff; }
-    100% { text-shadow: 0 0 10px #ff3366; color: #ff6666; }
-  }
-</style>
+        .container {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin: 20px auto;
+            max-width: 1200px;
+            padding: 0 20px;
+        }
+
+        details {
+            background: rgba(0, 0, 0, 0.4); /* Mais transparente */
+            border-radius: 15px;
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+            padding: 20px;
+            box-shadow: 0 0 15px #ff3366; /* Vermelho */
+            transition: all 0.3s ease;
+            transform: scale(0.95);
+            opacity: 0.9;
+            border: 1px solid rgba(255, 51, 102, 0.3);
+        }
+
+        details[open] {
+            transform: scale(1);
+            opacity: 1;
+            box-shadow: 0 0 25px #ff3366; /* Vermelho mais intenso */
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        summary {
+            cursor: pointer;
+            font-size: clamp(1.1rem, 2.5vw, 1.5em);
+            letter-spacing: 1.5px;
+            text-shadow: 0 0 8px #ff3366; /* Vermelho */
+            font-weight: 600;
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        summary:hover {
+            text-shadow: 0 0 15px #ff0000, 0 0 20px #ff3366;
+            background: rgba(255, 51, 102, 0.1);
+        }
+
+        details p {
+            margin-top: 15px;
+            font-size: clamp(0.95rem, 2vw, 1.1em);
+            line-height: 1.6em;
+            padding: 0 10px 10px;
+            color: #e6e6e6;
+        }
+
+        .services-title {
+            text-align: center;
+            width: 100%;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            text-shadow: 0 0 10px #ff3366;
+            color: #fff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.6);
+            margin-top: 40px;
+            border-top: 2px solid #ff3366;
+        }
+
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 15px 30px;
+            border-radius: 50px;
+            background: #25D366;
+            color: #fff;
+            font-size: clamp(1rem, 3vw, 1.3em);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            word-break: break-word;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            font-weight: 600;
+        }
+
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            box-shadow: 0 0 20px #25D366;
+            transform: translateY(-3px);
+        }
+
+        .social-icons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #ff3366;
+            text-shadow: 0 0 10px #ff3366;
+        }
+
+        /* Responsividade melhorada */
+        @media (max-width: 900px) {
+            .container {
+                gap: 20px;
+            }
+            
+            details {
+                flex: 0 0 calc(50% - 20px);
+                min-width: 200px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 0 5px;
+            }
+            
+            header {
+                padding: 30px 15px;
+                font-size: 1.8rem;
+            }
+            
+            .container {
+                gap: 15px;
+                padding: 0 10px;
+            }
+            
+            details {
+                flex: 0 0 100%;
+                min-width: unset;
+                padding: 15px;
+            }
+            
+            .btn-whatsapp {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            
+            .services-title {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>Academia Performance</header>
+
+    <div class="container">
+        <h2 class="services-title">Nossos Serviços</h2>
+        
+        <details>
+            <summary>Musculação</summary>
+            <p>Equipamentos modernos e instrutores especializados para você alcançar seus objetivos de forma segura e eficiente.</p>
+        </details>
+
+        <details>
+            <summary>Aulas Grupais</summary>
+            <p>Dança, spinning, yoga e pilates. Diversas modalidades para você se exercitar com motivação e energia.</p>
+        </details>
+
+        <details>
+            <summary>Personal Trainer</summary>
+            <p>Atendimento individualizado com planos de treino personalizados para maximizar seus resultados.</p>
+        </details>
+    </div>
+
+    <footer>
+        <a href="https://wa.me/5511941831006" class="btn-whatsapp">
+            <i class="fab fa-whatsapp"></i> Fale conosco no WhatsApp
+        </a>
+        
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+        
+        <p style="margin-top: 20px; font-size: 0.9rem;">
+            © 2023 Academia Performance. Todos os direitos reservados.
+        </p>
+    </footer>
+
+</body>
+</html>
