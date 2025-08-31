@@ -183,24 +183,6 @@
                          0 0 30px #ff3366,
                          2px 2px 1px #000;
             animation: red-pulse 2s infinite alternate;
-            overflow: hidden;
-            border-right: 3px solid #ff3366;
-            white-space: nowrap;
-            margin: 0 auto 20px;
-            animation: typing 3.5s steps(16, end), blink-caret 0.75s step-end infinite, red-pulse 2s infinite alternate;
-            animation-delay: 0s, 3.5s, 3.5s;
-        }
-
-        /* Efeito de máquina de escrever */
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-
-        /* Efeito do cursor piscando */
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: #ff3366; }
         }
 
         footer {
@@ -301,10 +283,6 @@
             
             .services-title {
                 font-size: 1.6rem;
-                white-space: normal;
-                animation: none;
-                border-right: none;
-                overflow: visible;
             }
         }
     </style>
@@ -350,15 +328,5 @@
         </p>
     </footer>
 
-    <script>
-        // Reiniciar a animação ao clicar no título (opcional)
-        document.querySelector('.services-title').addEventListener('click', function() {
-            this.style.animation = 'none';
-            setTimeout(() => {
-                this.style.animation = 'typing 3.5s steps(16, end), blink-caret 0.75s step-end infinite, red-pulse 2s infinite alternate';
-                this.style.animationDelay = '0s, 3.5s, 3.5s';
-            }, 10);
-        });
-    </script>
 </body>
 </html>
