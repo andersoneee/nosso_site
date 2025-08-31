@@ -1,88 +1,151 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Academia Performance</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-      background: linear-gradient(135deg, #111, #333);
-      color: white;
-    }
+<meta charset="UTF-8">
+<title>Academia Performance</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Pacifico', cursive;
+    background: url('imagens_site/cao.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 0 10px;
+  }
+
+  header {
+    text-align: center;
+    padding: 30px 15px;
+    background: rgba(0,0,0,0.4);
+    font-size: clamp(1.8rem, 4vw, 3em);
+    animation: piscar 3s infinite alternate;
+  }
+
+  @keyframes piscar {
+    0% { text-shadow: 0 0 5px #0ff, 0 0 10px #0ff; color:#0ff; }
+    50% { text-shadow: 0 0 15px #ff00ff, 0 0 25px #0ff; color:#fff; }
+    100% { text-shadow: 0 0 10px #00ffcc, 0 0 20px #0ff; color:#0ff; }
+  }
+
+  .container {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap; /* deixa em linha em telas grandes */
+    align-items: stretch;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 1000px;
+    margin: 20px auto;
+  }
+
+  details {
+    background: rgba(0,0,0,0.6);
+    padding: 15px 20px;
+    border-radius: 12px;
+    flex: 1 1 250px; /* responsivo */
+    min-width: 200px;
+    max-width: 300px;
+    box-shadow: 0 0 10px #00ffcc;
+    transition: all 0.3s ease;
+  }
+
+  details[open] {
+    box-shadow: 0 0 20px #00ffcc;
+    transform: scale(1.03);
+  }
+
+  summary {
+    cursor: pointer;
+    font-size: clamp(1rem, 2.5vw, 1.3em);
+    letter-spacing: 2px;
+  }
+
+  summary:hover {
+    text-shadow: 0 0 15px #ff00ff, 0 0 20px #00ffff;
+  }
+
+  details p {
+    margin-top: 10px;
+    font-size: clamp(0.9rem, 2vw, 1em);
+    line-height: 1.4em;
+  }
+
+  footer {
+    text-align: center;
+    padding: 15px;
+    background: rgba(0,0,0,0.4);
+  }
+
+  .btn-whatsapp {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: #25D366;
+    color: #fff;
+    font-size: clamp(0.9rem, 2.5vw, 1.1em);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn-whatsapp:hover {
+    background: #128C7E;
+    box-shadow: 0 0 12px #25D366;
+  }
+
+  @media (max-width: 600px) {
     header {
-      padding: clamp(1rem, 2vw, 2rem);
+      font-size: 1.6rem;
+      padding: 20px 10px;
     }
-
-    header h1 {
-      font-size: clamp(1.8rem, 5vw, 3rem);
-      margin: 0;
-      color: #ffcc00;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      animation: blink 2s infinite alternate;
-    }
-
-    @keyframes blink {
-      0% { opacity: 1; }
-      100% { opacity: 0.6; }
-    }
-
     .container {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      padding: clamp(1rem, 3vw, 2rem);
-      flex-wrap: wrap;
+      flex-direction: column; /* no celular fica em coluna */
+      align-items: center;
     }
-
-    .box {
-      background: #222;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-      flex: 1 1 200px;
-      max-width: 250px;
-      transition: transform 0.3s;
+    details {
+      width: 90%;
+      padding: 12px 15px;
     }
-
-    .box:hover {
-      transform: scale(1.05);
+    .btn-whatsapp {
+      padding: 8px 15px;
     }
-
-    .box h2 {
-      font-size: clamp(1rem, 3vw, 1.5rem);
-      color: #ffcc00;
-    }
-
-    .box p {
-      font-size: clamp(0.8rem, 2.5vw, 1rem);
-      color: #ddd;
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
-  <header>
-    <h1>Academia Performance</h1>
-  </header>
 
-  <div class="container">
-    <div class="box">
-      <h2>Treinos</h2>
-      <p>Planos de treino personalizados para sua meta.</p>
-    </div>
-    <div class="box">
-      <h2>Nutrição</h2>
-      <p>Orientação alimentar para melhor performance.</p>
-    </div>
-    <div class="box">
-      <h2>Resultados</h2>
-      <p>Acompanhe sua evolução e conquiste objetivos.</p>
-    </div>
-  </div>
+<header>Academia Performance</header>
+
+<div class="container">
+  <details>
+    <summary>Serviço 1</summary>
+    <p>Treinos personalizados para atingir seus objetivos mais rápido.</p>
+  </details>
+
+  <details>
+    <summary>Serviço 2</summary>
+    <p>Aulas em grupo motivacionais com acompanhamento de profissionais.</p>
+  </details>
+
+  <details>
+    <summary>Serviço 3</summary>
+    <p>Planos de nutrição integrados ao seu treino para melhores resultados.</p>
+  </details>
+</div>
+
+<footer>
+  <a href="https://wa.me/5511941831006" class="btn-whatsapp">Fale conosco no WhatsApp</a>
+</footer>
+
 </body>
 </html>
