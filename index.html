@@ -6,6 +6,8 @@
 <title>Academia Performance</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+  /* Adicionei o ícone do WhatsApp via CDN (Font Awesome) */
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   * {
     box-sizing: border-box;
@@ -51,8 +53,9 @@
   details {
     background: rgba(0,0,0,0.6);
     border-radius: 15px;
-    width: 30%;
-    min-width: 200px;
+    flex: 1; /* Flexibilidade para ocupar espaço igual */
+    min-width: 250px; /* Largura mínima para cada caixa */
+    max-width: 300px; /* Largura máxima para não ficar muito largo */
     padding: 15px 20px;
     box-shadow: 0 0 15px #00ffcc;
     transition: all 0.3s ease;
@@ -90,7 +93,10 @@
   }
 
   .btn-whatsapp {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     padding: 12px 25px;
     border-radius: 10px;
     background: #25D366;
@@ -106,16 +112,32 @@
     box-shadow: 0 0 15px #25D366;
   }
 
-  /* Responsividade */
+  /* Responsividade melhorada */
   @media (max-width: 900px) {
-    details { width: 45%; }
+    details {
+      flex: 0 0 calc(50% - 20px); /* 2 colunas em tablets */
+    }
   }
 
-  @media (max-width: 480px) {
-    body { padding: 0 5px; }
-    details { width: 100%; padding: 10px 15px; }
-    header { font-size: 1.6rem; padding: 25px 10px; }
-    .btn-whatsapp { padding: 10px 15px; }
+  @media (max-width: 600px) {
+    details {
+      flex: 0 0 100%; /* 1 coluna em celulares */
+      min-width: unset;
+    }
+    
+    .container {
+      gap: 15px;
+    }
+    
+    header {
+      padding: 25px 10px;
+      font-size: 1.6rem;
+    }
+    
+    .btn-whatsapp {
+      padding: 10px 15px;
+      font-size: 0.9rem;
+    }
   }
 </style>
 </head>
@@ -141,7 +163,9 @@
 </div>
 
 <footer>
-  <a href="https://wa.me/5511941831006" class="btn-whatsapp">Fale conosco no WhatsApp</a>
+  <a href="https://wa.me/5511941831006" class="btn-whatsapp">
+    <i class="fab fa-whatsapp"></i> Fale conosco no WhatsApp
+  </a>
 </footer>
 
 </body>
