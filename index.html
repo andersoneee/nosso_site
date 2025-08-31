@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academia Iron</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
         * {
@@ -29,20 +29,49 @@
 
         header {
             text-align: center;
-            padding: 40px 20px;
-            background: rgba(0, 0, 0, 0.3);
-
-                    font-family: 'Playfair Display', serif;
-                            font-size: clamp(1.8rem, 5vw, 3em);
-            animation: piscar 4s infinite alternate;
+            padding: 50px 20px;
+            background: rgba(0, 0, 0, 0.4);
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 7vw, 4.5em);
             margin-bottom: 30px;
-            border-bottom: 2px solid #ff3366;
+            border-bottom: 3px solid #ff3366;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 3px;
         }
 
-        @keyframes piscar {
-            0% { text-shadow: 0 0 8px #ff3366; color: #ff6666; }
-            50% { text-shadow: 0 0 18px #ff0000, 0 0 25px #ff3366; color: #fff; }
-            100% { text-shadow: 0 0 10px #ff3366; color: #ff6666; }
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ff3366, transparent);
+            animation: scanline 3s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+
+        .title-effect {
+            text-shadow: 0 0 10px #ff3366, 
+                         0 0 20px #ff3366, 
+                         0 0 30px #ff3366, 
+                         0 0 40px #ff3366,
+                         3px 3px 0 #000,
+                         -1px -1px 0 #000;
+            animation: title-glitch 5s infinite alternate;
+        }
+
+        @keyframes title-glitch {
+            0%, 100% { transform: translateX(0) skewX(0); }
+            5% { transform: translateX(-5px) skewX(-5deg); }
+            10% { transform: translateX(5px) skewX(5deg); }
+            15% { transform: translateX(-5px) skewX(-5deg); }
+            20% { transform: translateX(0) skewX(0); }
         }
 
         .container {
@@ -57,8 +86,8 @@
         }
 
         details {
-            background: rgba(0, 0, 0, 0.3); /* Ainda mais transparente */
-            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
             flex: 1;
             min-width: 250px;
             max-width: 350px;
@@ -67,8 +96,27 @@
             transition: all 0.3s ease;
             transform: scale(0.95);
             opacity: 0.9;
-            border: 1px solid rgba(255, 51, 102, 0.3);
+            border: 1px solid rgba(255, 51, 102, 0.5);
             backdrop-filter: blur(5px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        details::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #ff3366;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        details:hover::before {
+            transform: scaleX(1);
         }
 
         details[open] {
@@ -85,8 +133,21 @@
             text-shadow: 0 0 8px #ff3366;
             font-weight: 600;
             padding: 10px;
-            border-radius: 8px;
+            border-radius: 4px;
             transition: all 0.3s ease;
+            font-family: 'Orbitron', sans-serif;
+            position: relative;
+        }
+
+        summary::after {
+            content: ">";
+            position: absolute;
+            right: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        details[open] summary::after {
+            transform: rotate(90deg);
         }
 
         summary:hover {
@@ -106,17 +167,20 @@
             text-align: center;
             width: 100%;
             margin-bottom: 20px;
-            font-size: 2rem;
+            font-size: 2.2rem;
             text-shadow: 0 0 10px #ff3366;
             color: #fff;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         footer {
             text-align: center;
             padding: 30px;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.6);
             margin-top: 40px;
-            border-top: 2px solid #ff3366;
+            border-top: 3px solid #ff3366;
         }
 
         .btn-whatsapp {
@@ -125,50 +189,22 @@
             justify-content: center;
             gap: 12px;
             padding: 15px 30px;
-            border-radius: 50px;
+            border-radius: 5px;
             background: #25D366;
             color: #fff;
             font-size: clamp(1rem, 3vw, 1.3em);
             text-decoration: none;
             transition: all 0.3s ease;
             word-break: break-word;
-            box-shadow: 0 0 15px #25D366, 0 0 25px #25D366, 0 0 35px #25D366;
             font-weight: 600;
-            animation: neon-pulse 2s infinite alternate;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .btn-whatsapp:before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: rgba(255, 255, 255, 0.1);
-            transform: rotate(45deg);
-            transition: all 0.6s ease;
-            z-index: -1;
-        }
-
-        .btn-whatsapp:hover:before {
-            transform: rotate(45deg) translate(50%, 50%);
+            border: 2px solid #128C7E;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
         .btn-whatsapp:hover {
-            box-shadow: 0 0 20px #25D366, 0 0 30px #25D366, 0 0 40px #25D366;
-            transform: translateY(-3px) scale(1.05);
-        }
-
-        @keyframes neon-pulse {
-            from {
-                box-shadow: 0 0 10px #25D366, 0 0 20px #25D366, 0 0 30px #25D366;
-            }
-            to {
-                box-shadow: 0 0 15px #25D366, 0 0 25px #25D366, 0 0 35px #25D366, 0 0 45px #25D366;
-            }
+            background: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
         }
 
         .social-icons {
@@ -182,10 +218,12 @@
             color: #fff;
             font-size: 1.8rem;
             transition: all 0.3s ease;
+            text-shadow: 0 0 5px #ff3366;
         }
 
         .social-icons a:hover {
             color: #ff3366;
+            transform: translateY(-3px);
             text-shadow: 0 0 10px #ff3366;
         }
 
@@ -199,6 +237,11 @@
                 flex: 0 0 calc(50% - 20px);
                 min-width: 200px;
             }
+            
+            header {
+                padding: 40px 15px;
+                font-size: clamp(2rem, 6vw, 3.5em);
+            }
         }
 
         @media (max-width: 600px) {
@@ -207,8 +250,9 @@
             }
             
             header {
-                padding: 30px 15px;
-                font-size: 1.8rem;
+                padding: 30px 10px;
+                font-size: clamp(1.8rem, 5vw, 2.5em);
+                letter-spacing: 2px;
             }
             
             .container {
@@ -235,10 +279,12 @@
 </head>
 <body>
 
-    <header>Academia Iron</header>
+    <header>
+        <div class="title-effect">ACADEMIA IRON</div>
+    </header>
 
     <div class="container">
-        <h2 class="services-title">Nossos Serviços</h2>
+        <h2 class="services-title">NOSSOS SERVIÇOS</h2>
         
         <details>
             <summary>Musculação</summary>
@@ -268,7 +314,7 @@
         </div>
         
         <p style="margin-top: 20px; font-size: 0.9rem;">
-            © 2023 Academia Iron. Todos os direitos reservados.
+            © 2023 ACADEMIA IRON. TODOS OS DIREITOS RESERVADOS.
         </p>
     </footer>
 
