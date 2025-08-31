@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academia Performance</title>
+    <title>Academia Iron</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
@@ -17,8 +17,8 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('imagens_site/cao.jpg') no-repeat center center fixed;
             background-size: cover;
             color: #fff;
             display: flex;
@@ -30,7 +30,7 @@
         header {
             text-align: center;
             padding: 40px 20px;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.3);
             font-family: 'Pacifico', cursive;
             font-size: clamp(1.8rem, 5vw, 3em);
             animation: piscar 4s infinite alternate;
@@ -56,31 +56,32 @@
         }
 
         details {
-            background: rgba(0, 0, 0, 0.4); /* Mais transparente */
+            background: rgba(0, 0, 0, 0.3); /* Ainda mais transparente */
             border-radius: 15px;
             flex: 1;
             min-width: 250px;
             max-width: 350px;
             padding: 20px;
-            box-shadow: 0 0 15px #ff3366; /* Vermelho */
+            box-shadow: 0 0 15px #ff3366;
             transition: all 0.3s ease;
             transform: scale(0.95);
             opacity: 0.9;
             border: 1px solid rgba(255, 51, 102, 0.3);
+            backdrop-filter: blur(5px);
         }
 
         details[open] {
             transform: scale(1);
             opacity: 1;
-            box-shadow: 0 0 25px #ff3366; /* Vermelho mais intenso */
-            background: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 25px #ff3366;
+            background: rgba(0, 0, 0, 0.4);
         }
 
         summary {
             cursor: pointer;
             font-size: clamp(1.1rem, 2.5vw, 1.5em);
             letter-spacing: 1.5px;
-            text-shadow: 0 0 8px #ff3366; /* Vermelho */
+            text-shadow: 0 0 8px #ff3366;
             font-weight: 600;
             padding: 10px;
             border-radius: 8px;
@@ -112,7 +113,7 @@
         footer {
             text-align: center;
             padding: 30px;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.5);
             margin-top: 40px;
             border-top: 2px solid #ff3366;
         }
@@ -130,14 +131,43 @@
             text-decoration: none;
             transition: all 0.3s ease;
             word-break: break-word;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 0 15px #25D366, 0 0 25px #25D366, 0 0 35px #25D366;
             font-weight: 600;
+            animation: neon-pulse 2s infinite alternate;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-whatsapp:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+            z-index: -1;
+        }
+
+        .btn-whatsapp:hover:before {
+            transform: rotate(45deg) translate(50%, 50%);
         }
 
         .btn-whatsapp:hover {
-            background: #128C7E;
-            box-shadow: 0 0 20px #25D366;
-            transform: translateY(-3px);
+            box-shadow: 0 0 20px #25D366, 0 0 30px #25D366, 0 0 40px #25D366;
+            transform: translateY(-3px) scale(1.05);
+        }
+
+        @keyframes neon-pulse {
+            from {
+                box-shadow: 0 0 10px #25D366, 0 0 20px #25D366, 0 0 30px #25D366;
+            }
+            to {
+                box-shadow: 0 0 15px #25D366, 0 0 25px #25D366, 0 0 35px #25D366, 0 0 45px #25D366;
+            }
         }
 
         .social-icons {
@@ -204,7 +234,7 @@
 </head>
 <body>
 
-    <header>Academia Performance</header>
+    <header>Academia Iron</header>
 
     <div class="container">
         <h2 class="services-title">Nossos Serviços</h2>
@@ -237,7 +267,7 @@
         </div>
         
         <p style="margin-top: 20px; font-size: 0.9rem;">
-            © 2023 Academia Performance. Todos os direitos reservados.
+            © 2023 Academia Iron. Todos os direitos reservados.
         </p>
     </footer>
 
