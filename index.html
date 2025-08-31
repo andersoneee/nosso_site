@@ -38,22 +38,7 @@
             position: relative;
             text-transform: uppercase;
             letter-spacing: 3px;
-        }
-
-        header::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #ff3366, transparent);
-            animation: scanline 3s linear infinite;
-        }
-
-        @keyframes scanline {
-            0% { top: 0; }
-            100% { top: 100%; }
+            overflow: hidden;
         }
 
         .title-effect {
@@ -64,6 +49,20 @@
                          3px 3px 0 #000,
                          -1px -1px 0 #000;
             animation: title-glitch 5s infinite alternate;
+            
+            /* Efeito de gradiente vermelho animado */
+            background: linear-gradient(270deg, #ff0000, #cc0000, #ff3333, #ff0000);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: red-wave 3s ease infinite;
+        }
+
+        @keyframes red-wave {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         @keyframes title-glitch {
@@ -109,10 +108,12 @@
             left: 0;
             width: 100%;
             height: 3px;
-            background: #ff3366;
+            background: linear-gradient(270deg, #ff0000, #cc0000, #ff3333, #ff0000);
+            background-size: 400% 400%;
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.3s ease;
+            animation: red-wave 3s ease infinite;
         }
 
         details:hover::before {
@@ -173,6 +174,14 @@
             font-family: 'Orbitron', sans-serif;
             letter-spacing: 2px;
             text-transform: uppercase;
+            
+            /* Efeito de gradiente vermelho animado */
+            background: linear-gradient(270deg, #ff0000, #cc0000, #ff3333, #ff0000);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: red-wave 3s ease infinite;
         }
 
         footer {
